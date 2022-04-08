@@ -1,0 +1,6 @@
+services:
+  scanapi: 
+    build:
+       context: .
+    volumes: 
+      - ./output:/output
