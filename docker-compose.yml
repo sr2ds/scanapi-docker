@@ -4,3 +4,7 @@ services:
        context: .
     volumes: 
       - ./output:/output
+    environment:
+      - EMAIL=${EMAIL}
+      - PASSWORD=${PASSWORD}
+      - BASE_PATH=${BASE_PATH}

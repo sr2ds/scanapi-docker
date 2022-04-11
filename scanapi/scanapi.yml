@@ -1,9 +1,24 @@
 endpoints:
-  - name: snippets-api
-    path: http://demo.scanapi.dev/api/v1/
+  - name: scanapi-api
+    path: ${BASE_PATH}
     headers:
       Content-Type: application/json
+
     requests:
-      - name: health
+      - name: login
+        method: post
+        path: /login
+        body:
+          username: ${EMAIL}
+          password: ${PASSWORD}
+        vars:
+          token: ${{response.json()["access_token"]}}
+
+      - name: services
         method: get
-        path: /health/
+        path: /services
+        headers:
+            Authorization: Bearer ${token}
+        tests:
+          - name: services_status_code
+            assert: ${{ response.status_code == 200 }} 
