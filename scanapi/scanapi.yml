@@ -3,6 +3,7 @@ endpoints:
     path: ${BASE_PATH}
     headers:
       Content-Type: application/json
+      Authorization: Bearer ${token}
 
     requests:
       - name: login
@@ -15,10 +16,7 @@ endpoints:
           token: ${{response.json()["access_token"]}}
 
       - name: services
-        method: get
         path: /services
-        headers:
-            Authorization: Bearer ${token}
         tests:
           - name: services_status_code
             assert: ${{ response.status_code == 200 }} 

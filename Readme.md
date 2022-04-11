@@ -10,6 +10,7 @@ https://scanapi.dev/docs.html
 # To run
 
 1. Clone this Repository;
-2. Write your tests in `scanapi/scanapi.yml`
-3. Run docker build with `docker-compose up`
-4. Get output in `output/report.html`
+2. Set your `.env` file;
+3. Write your tests in `scanapi/scanapi.yml`
+4. Run docker build with `docker-compose up`
+5. Get output in `output/report.html`
